@@ -20,21 +20,21 @@ export function Nav() {
   }, []);
 
   return (
-    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-3 backdrop-blur-2xl bg-onyx/60 border-b border-border" : "py-6 bg-transparent"}`}>
+    <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-3 backdrop-blur-2xl bg-black border-b border-border" : "py-6 bg-transparent"}`}>
       <div className="mx-auto max-w-[1500px] px-6 md:px-12 flex items-center justify-between">
         <a href="#top" className="flex items-baseline gap-2 group">
-          <span className="font-display text-2xl md:text-3xl text-ivory">Decore</span>
+          <span className="font-display text-2xl md:text-3xl text-white">Decore</span>
           <span className="font-display italic text-2xl md:text-3xl text-gold-gradient">Homez</span>
         </a>
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="group relative text-xs uppercase tracking-[0.3em] text-ivory/70 hover:text-ivory transition-colors">
+            <a key={l.href} href={l.href} className="group relative text-xs uppercase tracking-[0.3em] text-white hover:text-ivory transition-colors">
               {l.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-gold transition-all duration-500 group-hover:w-full" />
             </a>
           ))}
         </nav>
-        <a href="#contact" className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-onyx bg-gold px-5 py-3 hover:bg-gold-soft transition">
+        <a href="#contact" className="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white bg-gold px-5 py-3 hover:bg-gold-soft transition">
           Book Consultation
         </a>
         <button onClick={() => setOpen(!open)} className="md:hidden text-ivory" aria-label="Menu">

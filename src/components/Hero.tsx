@@ -24,7 +24,7 @@ export function Hero() {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 1 }} className="text-xs uppercase tracking-[0.5em] text-gold mb-6 flex items-center gap-4">
             <span className="h-px w-12 bg-gold" /> Decore Homez · By Ajay Dodiya
           </motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="font-display text-[clamp(2.8rem,8vw,8.5rem)] leading-[0.95] text-ivory text-balance">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 1.2, ease: [0.22, 1, 0.36, 1] }} className="font-display text-[clamp(2.8rem,8vw,8.5rem)] leading-[0.95] text-white text-balance">
             Luxury Interiors <br />
             <span className="italic text-gold-gradient">Crafted with Vision</span>
           </motion.h1>
