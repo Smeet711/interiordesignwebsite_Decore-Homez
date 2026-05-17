@@ -1,0 +1,136 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face { font-family: "fallback"; src: local("Georgia"); }
+
+@theme inline {
+  --font-display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-ivory: var(--ivory);
+  --color-beige: var(--beige);
+  --color-onyx: var(--onyx);
+
+  --shadow-luxe: 0 30px 80px -20px oklch(0 0 0 / 0.6);
+  --shadow-gold: 0 0 60px -10px var(--gold);
+}
+
+:root {
+  --background: oklch(0.12 0.005 60);
+  --foreground: oklch(0.95 0.012 80);
+
+  --onyx: oklch(0.08 0.004 60);
+  --ivory: oklch(0.96 0.014 85);
+  --beige: oklch(0.82 0.03 75);
+  --gold: oklch(0.78 0.13 78);
+  --gold-soft: oklch(0.68 0.09 78);
+
+  --card: oklch(0.15 0.006 60);
+  --card-foreground: var(--ivory);
+  --popover: oklch(0.15 0.006 60);
+  --popover-foreground: var(--ivory);
+  --primary: var(--gold);
+  --primary-foreground: var(--onyx);
+  --secondary: oklch(0.2 0.008 60);
+  --secondary-foreground: var(--ivory);
+  --muted: oklch(0.2 0.008 60);
+  --muted-foreground: oklch(0.65 0.015 75);
+  --accent: var(--gold);
+  --accent-foreground: var(--onyx);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: var(--ivory);
+  --border: oklch(0.95 0.012 80 / 0.08);
+  --input: oklch(0.95 0.012 80 / 0.12);
+  --ring: var(--gold);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    overflow-x: hidden;
+    cursor: none;
+  }
+  @media (max-width: 768px) { body { cursor: auto; } }
+  h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 300; letter-spacing: -0.02em; }
+  ::selection { background: var(--gold); color: var(--onyx); }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .text-balance { text-wrap: balance; }
+  .glass {
+    background: oklch(0.95 0.012 80 / 0.04);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid oklch(0.95 0.012 80 / 0.08);
+  }
+  .glass-gold {
+    background: linear-gradient(135deg, oklch(0.78 0.13 78 / 0.08), oklch(0.78 0.13 78 / 0.02));
+    backdrop-filter: blur(20px);
+    border: 1px solid oklch(0.78 0.13 78 / 0.25);
+  }
+  .gold-line {
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .text-gold-gradient {
+    background: linear-gradient(135deg, oklch(0.88 0.13 82), oklch(0.62 0.11 70));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.08; mix-blend-mode: overlay;
+  }
+  .reveal-mask { clip-path: inset(0 100% 0 0); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes float-slow {
+  0%,100% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-30px) translateX(20px); }
+}
+.animate-float-slow { animation: float-slow 14s ease-in-out infinite; }
